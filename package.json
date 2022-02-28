@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "The best way to watch a videos.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js"
   },
@@ -17,8 +18,10 @@
   },
   "homepage": "https://github.com/junhee95/wetube-reloaded#readme",
   "dependencies": {
-    "express": "^4.17.3"
-
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

@@ -1,9 +1,23 @@
-// import express from "express";
-const express = require("express");
-const { handle } = require("express/lib/router");
+import express from "express";
+import morgan from "morgan";
+import globalRouter from "../src/routers/globalRouter.js";
+import videoRouter from "../src/routers/videoRouter.js";
+import userRouter from "../src/routers/userRouter.js";
+
+ 
+const PORT = 4000;
+
 const app = express();
+const logger = morgan("dev");
+app.use(logger);
 
-const handleListening= () => console.log("Server listenting on port 4000")
+app.get("/login");
 
-app.listen(4000,handleListening);
+app.use("/",globalRouter);
+app.use("/videos",videoRouter);
+app.use("/users",userRouter);
+
+const handleListening= () => console.log(`Server listenting on port http://localhost:${PORT}🚀`);
+
+app.listen(PORT,handleListening);
 
