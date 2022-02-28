@@ -1,17 +1,12 @@
 import express from "express";
-import {join} from "../src/controllers/userControllers";
-import {trending} from "../src/controllers/videoControllers.js";
+import {join,login} from "../../../wetube/src/controllers//userControllers.js"
+import {trending,search} from "../../../wetube/src/controllers//videoControllers.js";
 
 const globalRouter = express.Router();
 
-const handleHome = (req,res) => res.send("Home");
-const handleJoin = (req,res) => res.send("Join");
-const handleLogin = (req,res) => res.send("Login");
-
-
 globalRouter.get("/", trending);
 globalRouter.get("/join", join);
-globalRouter.get("/login", handleLogin);
-
+globalRouter.get("/login", login);
+globalRouter.get("/search", search);
 
 export default globalRouter;
