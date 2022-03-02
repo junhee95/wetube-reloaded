@@ -1,5 +1,5 @@
 import express from "express";
-import { edit,remove,logout,see } from "../../../wetube/src/controllers/userControllers.js";
+import { edit,remove,logout,see } from "../controllers/userControllers.js";
 
 const userRouter = express.Router();
 

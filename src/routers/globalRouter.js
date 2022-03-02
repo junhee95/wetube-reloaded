@@ -1,6 +1,6 @@
 import express from "express";
-import {join,login} from "../../../wetube/src/controllers//userControllers.js"
-import {trending,search} from "../../../wetube/src/controllers//videoControllers.js";
+import {join,login} from "../controllers/userControllers.js"
+import {trending,search} from "../controllers/videoControllers.js";
 
 const globalRouter = express.Router();
 
