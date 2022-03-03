@@ -1,15 +1,20 @@
 import mongoose from "mongoose";
 
+
 const videoSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    createdAt: Date,
-    hashtage: [{type: String}],
+    title: {type: String, required: true, trim: true},
+    description: {type: String, required: true, trim: true},
+    createdAt: {type: Date, required: true, default: Date.now},
+    hashtages: [{type: String,trim: true}],
     meta: {
-        view: Number,
-        rating: Number,
+        view: {type:Number, default: 0, required: true},
+        rating: {type:Number, default: 0, required: true},
     },
 });
+
+videoSchema.static('formatHashtags', function(hashtages){
+    hashtages.split(",").map((word) => (word.startsWith("#") ? word : `#${word}`));
+})
 
 const Video = mongoose.model("Video",videoSchema);
 export default Video;
