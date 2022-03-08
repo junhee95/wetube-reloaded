@@ -45,7 +45,7 @@ export const getUpload = (req,res) => {
 }
 
 export const postUpload = async(req,res) => {
-    const {title,description,hashtags} =req.body;
+    const {title,description,hashtags} = req.body;
     try{
         await Video.create({
             title,
@@ -62,8 +62,8 @@ export const postUpload = async(req,res) => {
             pageTitle:"Upload Video",
             errorMessage: error._message,
         });
-    }
-}
+    };
+};
 
 export const deleteVideo = async(req,res) => {
     const {id} = req.params;
