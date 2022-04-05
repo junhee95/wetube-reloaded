@@ -1,0 +1,25 @@
+header  
+    nav 
+        ul 
+            li 
+                a(href="/") Home
+            if loggedIn 
+                li 
+                    a(href="/videos/upload") Upload Video
+                li
+                    a(href="/users/edit") Edit Profile
+                li
+                    a(href="/users/logout") Log Out
+                li
+                    a(href=`/users/${loggedInUser._id}`)
+                        if loggedInUser.avetarUrl === ""
+                            span 🧑‍💻
+                        else 
+                            img.header__avatar(src="/" + loggedInUser.avetarUrl)
+            else
+                li
+                    a(href="/join") Join
+                li
+                    a(href="/login") Login                                
+            li 
+                a(href="/search") search
